@@ -1,0 +1,1603 @@
+{
+	"info": {
+		"name": "Cisco UDS",
+		"_postman_id": "db8aa713-3178-083a-7f92-00ce7dde3603",
+		"description": "The User Data Services (UDS) API is a REST-based set of operations that provide authenticated access to user resources and entities, such as user's devices, subscribed services, speed dials, and much more from the Cisco Unified Communications Manager (Unified CM) configuration database.\n\nThe Cisco UDS limits access to its services through HTTP Basic Access Authentication. It is a transaction scheme described in RFC 2617. This neatly aligns with the resource-based REST transactions that UDS uses to provide services.\nMany, but not all, UDS API requests require authentication for access\n. Use an end user account created by the CUCM administrator to make API calls that require authentication.\n\nhttps://developer.cisco.com/site/user-data-services/documents/api-reference/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "System-level Resources",
+			"description": "",
+			"item": [
+				{
+					"name": "options",
+					"description": "",
+					"item": [
+						{
+							"name": "options",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{host}:8443/cucm-uds/options",
+									"protocol": "https",
+									"host": [
+										"{host}"
+									],
+									"port": "8443",
+									"path": [
+										"cucm-uds",
+										"options"
+									]
+								},
+								"description": "The options resource returns information that a client application uses to implement menu choices in its UI, such as the ring settings"
+							},
+							"response": []
+						},
+						{
+							"name": "options/installedLocales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{host}:8443/cucm-uds/options/installedLocales",
+									"protocol": "https",
+									"host": [
+										"{host}"
+									],
+									"port": "8443",
+									"path": [
+										"cucm-uds",
+										"options",
+										"installedLocales"
+									]
+								},
+								"description": "The installedLocales resource returns a list of installed locale information on the server."
+							},
+							"response": []
+						},
+						{
+							"name": "options/models",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{host}:8443/cucm-uds/options/models",
+									"protocol": "https",
+									"host": [
+										"{host}"
+									],
+									"port": "8443",
+									"path": [
+										"cucm-uds",
+										"options",
+										"models"
+									]
+								},
+								"description": "The models resource returns a list of device models supported by the Cisco Unified CM and their related information. The response list contains a link to a localized user guide for each device model."
+							},
+							"response": []
+						},
+						{
+							"name": "options/timeZones",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{host}:8443/cucm-uds/options/timeZones",
+									"protocol": "https",
+									"host": [
+										"{host}"
+									],
+									"port": "8443",
+									"path": [
+										"cucm-uds",
+										"options",
+										"timeZones"
+									]
+								},
+								"description": "The timeZones resource returns a list of time zones recognized by the server."
+							},
+							"response": []
+						},
+						{
+							"name": "options/userPolicy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{host}:8443/cucm-uds/options/userPolicy",
+									"protocol": "https",
+									"host": [
+										"{host}"
+									],
+									"port": "8443",
+									"path": [
+										"cucm-uds",
+										"options",
+										"userPolicy"
+									]
+								},
+								"description": "The userPolicy resource returns a list of parameters that display the current settings for each user. The interface does not enforce userPolicy settings, but may do so in a future release. Developers should show or hide client features based on the settings returned by this resource."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "clusterUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://{host}:8443/cucm-uds/clusterUser?username={userId}\nContent-Type: application/xml",
+							"protocol": "https",
+							"host": [
+								"{host}"
+							],
+							"port": "8443",
+							"path": [
+								"cucm-uds",
+								"clusterUser"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "{userId}\nContent-Type: application/xml  ",
+									"equals": true
+								}
+							]
+						},
+						"description": "**username**\tFilter by username. \nhttps://{host}:8443/cucm-uds/clusterUser?username={userId}<br>\n**email**\tFilter by email address. \nhttps://{host}:8443/cucm-uds/clusterUser?email={mailId}<br>\n**useridentifier**\tFilter by user identifier. If the user is synced with Active Directory, the useridentifier value is associated with the UserPrincipleName.<br>\nhttps://{host}:8443/cucm-uds/clusterUser?useridentifier={useridentifier}"
+					},
+					"response": []
+				},
+				{
+					"name": "dayOfWeek",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://{host}:8443/cucm-uds/options/dayOfWeek",
+							"protocol": "https",
+							"host": [
+								"{host}"
+							],
+							"port": "8443",
+							"path": [
+								"cucm-uds",
+								"options",
+								"dayOfWeek"
+							]
+						},
+						"description": "The dayOfWeek resource returns a list of values for each day of the week. It is used by a remote destination profile to obtain a schedule. For more information on remote destination profiles, consult the documentation about the remoteDestination resource."
+					},
+					"response": []
+				},
+				{
+					"name": "groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https:­//{host}:8443/cucm-uds/groups?name={group}",
+							"host": [
+								"https"
+							],
+							"port": "­",
+							"path": [
+								"",
+								"{host}:8443",
+								"cucm-uds",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{group}",
+									"equals": true
+								}
+							]
+						},
+						"description": "For Unified CM systems integrated with Microsoft Active Directory (AD), this resource allows the user to query the list of AD groups available. The result can be filtered by passing a search string as a query parameter in the URL."
+					},
+					"response": []
+				},
+				{
+					"name": "phoneServices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://{host}:8443/cucm-uds/phoneServices",
+							"protocol": "https",
+							"host": [
+								"{host}"
+							],
+							"port": "8443",
+							"path": [
+								"cucm-uds",
+								"phoneServices"
+							]
+						},
+						"description": "Returns a list of the IP Phone Services currently configured in the Cisco Unified CM system. This resource provides only a list of the services. To obtain detailed information for a particular service, use the PhoneService resource."
+					},
+					"response": []
+				},
+				{
+					"name": "phoneService",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://{host}:8443/cucm-uds/phoneService/{phoneServiceid}",
+							"protocol": "https",
+							"host": [
+								"{host}"
+							],
+							"port": "8443",
+							"path": [
+								"cucm-uds",
+								"phoneService",
+								"{phoneServiceid}"
+							]
+						},
+						"description": "The PhoneService resource returns the detailed information for a particular IP Phone Service. The URL for accessing the PhoneService resource should be retrieved from the PhoneServices response."
+					},
+					"response": []
+				},
+				{
+					"name": "servers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://{host}:8443/cucm-uds/servers",
+							"protocol": "https",
+							"host": [
+								"{host}"
+							],
+							"port": "8443",
+							"path": [
+								"cucm-uds",
+								"servers"
+							]
+						},
+						"description": "The servers resource returns a list of all the Cisco Unified CM nodes within that cluster. This resource is used to load balance requests. Cisco recommends your application make a request to the first server in the list. If the server is busy, then pick another server until your application can successfully make a request."
+					},
+					"response": []
+				},
+				{
+					"name": "timeOfDay",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://{host}:8443/cucm-uds/options/timeOfDay",
+							"protocol": "https",
+							"host": [
+								"{host}"
+							],
+							"port": "8443",
+							"path": [
+								"cucm-uds",
+								"options",
+								"timeOfDay"
+							]
+						},
+						"description": "The timeOfDay resource returns a list of values for each time of the day in 15 minute increments. It is used by a remote destination profile to obtain a schedule. For more information on remote destination profiles, consult the documentation about the remoteDestination resource"
+					},
+					"response": []
+				},
+				{
+					"name": "users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://{host}:8443/cucm-uds/users",
+							"protocol": "https",
+							"host": [
+								"{host}"
+							],
+							"port": "8443",
+							"path": [
+								"cucm-uds",
+								"users"
+							]
+						},
+						"description": "The users resource provides search functions to locate users stored in the Cisco Unified CM database. It is highly recommended that query string parameters be used to filter the search results\n\n**11.5(1)+** can require authentication based on service parameter: usersResourceAuthEnabled"
+					},
+					"response": []
+				},
+				{
+					"name": "version",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://{host}:8443/cucm-uds/version",
+							"protocol": "https",
+							"host": [
+								"{host}"
+							],
+							"port": "8443",
+							"path": [
+								"cucm-uds",
+								"version"
+							]
+						},
+						"description": "Returns the current Cisco Unified CM UDS API version (x.x.x)."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Resources",
+			"description": "",
+			"item": [
+				{
+					"name": "user",
+					"description": "",
+					"item": [
+						{
+							"name": "speedDials",
+							"description": "",
+							"item": [
+								{
+									"name": "user/{userId}/speedDials",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/speedDials",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"speedDials"
+											]
+										},
+										"description": "The speedDials resource manages speed dial information for a user. It supports GET, POST, PUT, and DELETE methods."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/speedDials",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<speedDials>\n    <speedDial>\n        <index>1</index>\n        <number>1234567890</number>\n        <label>Manager</label>\n    </speedDial>\n    <speedDial>\n        <index>2</index>\n        <number>1234567899</number>\n        <label>Assistant</label>\n    </speedDial>\n</speedDials>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/speedDials",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"speedDials"
+											]
+										},
+										"description": "The speedDials POST method adds new speed dials.\n\nThe number of displayable speed dials supported may vary by device model and configuration. Speed dials added to a device may be converted into abbreviated dials based on the device settings."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/speedDials",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<speedDials>\n    <speedDial>\n        <index>1</index>\n        <number>1234567890</number>\n        <label>Manager</label>\n    </speedDial>\n    <speedDial>\n        <index>2</index>\n        <number>1234567899</number>\n        <label>Assistant</label>\n    </speedDial>\n</speedDials>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/speedDials",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"speedDials"
+											]
+										},
+										"description": "The speedDials PUT method updates the speed dial list with the specified speed dials.\n\nIf a device in the group of devices owned or associated with the user does not support enough displayable speed dials, the speed dial entries are created anyway. Speed dials that cannot be displayed are treated as \"abbreviated dials\""
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/speedDials",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<speedDials>\n    <speedDial>\n        <index>1</index>\n        <number>1234567890</number>\n        <label>Manager</label>\n    </speedDial>\n    <speedDial>\n        <index>2</index>\n        <number>1234567899</number>\n        <label>Assistant</label>\n    </speedDial>\n</speedDials>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/speedDials",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"speedDials"
+											]
+										},
+										"description": "Clears the speed dial information using the specified index and userId. It performs this operations across all of the devices owned by the user."
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "subscribedServices",
+							"description": "",
+							"item": [
+								{
+									"name": "user/{userId}/subscribedServices",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "https://{host}:8443/cucm-uds/user/{userId}/subscribedServices",
+											"protocol": "https",
+											"host": [
+												"{host}"
+											],
+											"port": "8443",
+											"path": [
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"subscribedServices"
+											]
+										},
+										"description": "The subscribedServices resource accesses the consolidated subscribed IP phone services for a user. If the user has different subscribed IP phone services on different devices, the response includes the URL for accessing the subscribed services for those devices. subscribedServices supports GET, POST, PUT, and DELETE methods"
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/subscribedServices",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<subscribedServices>\n    <subscribedService>\n        <name>InternalTechSupport</name>\n        <phoneServiceId>{phoneServiceId}</phoneServiceId>\n        <url>http:­//{host}/servlet/GTRCService?menuname=US</url>\n        <secureUrl>https:­//{host}/servlet/GTRCService?menuname=US</secureUrl>\n    </subscribedService>\n    <subscribedService>\n        <name>Service2</name>\n        <phoneServiceId>{phoneServiceId}</phoneServiceId>\n        <url>http:­//{host}/servlet/GTRCService2?menuname=US</url>\n        <secureUrl>https:­//{host}/servlet/GTRCService2?menuname=US</secureUrl>\n    </subscribedService>\n</subscribedServices>"
+										},
+										"url": {
+											"raw": "https://{host}:8443/cucm-uds/user/{userId}/subscribedServices",
+											"protocol": "https",
+											"host": [
+												"{host}"
+											],
+											"port": "8443",
+											"path": [
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"subscribedServices"
+											]
+										},
+										"description": "The subscribedServices POST method adds a new subscribed service to a user's subscribedServices list.\n\nRequests can be made in two formats:<br>\n**url/secureUrl**<br> \nEither a url or a secureUrl must be present in the request. subscribedServices parses any parameters from the provided url/secureUrl. The url/secureUrl must match the phoneService template definition.\n**parameter list**<br>\nThe parameter pkid must match the pkid returned by a GET phoneService response."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/subscribedServices",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<subscribedServices>\n    <subscribedService>\n        <name>InternalTechSupport</name>\n        <phoneServiceId>{phoneServiceId}</phoneServiceId>\n        <url>http:­//{host}/servlet/GTRCService?menuname=US</url>\n        <secureUrl>https:­//{host}/servlet/GTRCService?menuname=US</secureUrl>\n    </subscribedService>\n    <subscribedService>\n        <name>Service2</name>\n        <phoneServiceId>{phoneServiceId}</phoneServiceId>\n        <url>http:­//{host}/servlet/GTRCService2?menuname=US</url>\n        <secureUrl>https:­//{host}/servlet/GTRCService2?menuname=US</secureUrl>\n    </subscribedService>\n</subscribedServices>"
+										},
+										"url": {
+											"raw": "https://{host}:8443/cucm-uds/user/{userId}/subscribedServices",
+											"protocol": "https",
+											"host": [
+												"{host}"
+											],
+											"port": "8443",
+											"path": [
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"subscribedServices"
+											]
+										},
+										"description": "The subscribedServices PUT method replaces the subscribedServices list with the specified services.<br>\n\nRequests can be made in two formats:<br>\n**url/secureUrl**<br> \nEither a url or a secureUrl must be present in the request. subscribedServices parses any parameters from the provided url/secureUrl. The url/secureUrl must match the phoneService template definition.\n**parameter list**<br>\nThe parameter pkid must match the pkid returned by a GET phoneService response."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/subscribedServices",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<subscribedServices>\n    <subscribedService>\n        <name>InternalTechSupport</name>\n        <phoneServiceId>{phoneServiceId}</phoneServiceId>\n        <url>http:­//{host}/servlet/GTRCService?menuname=US</url>\n        <secureUrl>https:­//{host}/servlet/GTRCService?menuname=US</secureUrl>\n    </subscribedService>\n    <subscribedService>\n        <name>Service2</name>\n        <phoneServiceId>{phoneServiceId}</phoneServiceId>\n        <url>http:­//{host}/servlet/GTRCService2?menuname=US</url>\n        <secureUrl>https:­//{host}/servlet/GTRCService2?menuname=US</secureUrl>\n    </subscribedService>\n</subscribedServices>"
+										},
+										"url": {
+											"raw": "https://{host}:8443/cucm-uds/user/{userId}/subscribedServices",
+											"protocol": "https",
+											"host": [
+												"{host}"
+											],
+											"port": "8443",
+											"path": [
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"subscribedServices"
+											]
+										},
+										"description": "The subscribedServices DELETE method deletes all of the subscribed services from all of the user's devices."
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "removeDestination",
+							"description": "",
+							"item": [
+								{
+									"name": "user/{userId}/remoteDestinations",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/remoteDestinations",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"remoteDestinations"
+											]
+										},
+										"description": "The remoteDestinations resource manages the configuration of how calls are transferred to another destination device, which could be a mobile device that has Cisco Mobility Client installed. The remoteDestinations resource obtains information about remote destination device configurations"
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/remoteDestination/{remoteDestinationPkid}",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/remoteDestination/{remoteDestinationPkid}",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"remoteDestination",
+												"{remoteDestinationPkid}"
+											]
+										},
+										"description": "The remoteDestination resource manages the configuration of how calls are transferred to another destination device, which could be a mobile device. It supports GET, POST, and PUT methods.\n\nNote: The user must already have a remote destination profile or a CTI remote device configured in UCM."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/remoteDestination/{remoteDestinationPkid}",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": " <remoteDestination>\n        <name>Home</name>\n        <destination>+12345678901</destination>\n        <ringWhenExtensionDialed>true|false</ringWhenExtensionDialed>\n        <allowTransferToMobile>true</allowTransferToMobile>\n        <allowControlFromApplication>true|false</allowControlFromApplication>\n        <associatedDevices>\n            <associatedDevice>\n                <name>RD02</name>\n                <usage>2</usage>\n            </associatedDevice>\n        </associatedDevices>\n    </remoteDestination>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/remoteDestination/{remoteDestinationPkid}",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"remoteDestination",
+												"{remoteDestinationPkid}"
+											]
+										},
+										"description": "Add a Device as a remoteDestination\nAdds the specified device as a remote destination.\n\nRequirements for a successful request:\n\nThe remote destination must already be assigned to a user.If the remote destination is currently associated with the user, use the PUT method instead of the POST method. That is, instead of adding a destination, perform an update on an existing destination."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/remoteDestination/{remoteDestinationPkid}",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": " <remoteDestination>\n        <name>Home</name>\n        <destination>+12345678901</destination>\n        <ringWhenExtensionDialed>true|false</ringWhenExtensionDialed>\n        <allowTransferToMobile>true</allowTransferToMobile>\n        <allowControlFromApplication>true|false</allowControlFromApplication>\n        <associatedDevices>\n            <associatedDevice>\n                <name>RD02</name>\n                <usage>2</usage>\n            </associatedDevice>\n        </associatedDevices>\n    </remoteDestination>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/remoteDestination/{remoteDestinationPkid}",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"remoteDestination",
+												"{remoteDestinationPkid}"
+											]
+										},
+										"description": "Updates existing call destination information for the specified remote device.\n\nRequirements for a successful request:\n\nThe remote destination already exists.\nThe description field cannot be updated."
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "user/{userId}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{host}:8443/cucm-uds/user/{userid}",
+									"protocol": "https",
+									"host": [
+										"{host}"
+									],
+									"port": "8443",
+									"path": [
+										"cucm-uds",
+										"user",
+										"{userid}"
+									]
+								},
+								"description": "Returns detailed information about the specified user.\n\nNote: UDS does not support user IDs that have the '/' character in them."
+							},
+							"response": []
+						},
+						{
+							"name": "user/{userId}",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/xml"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<user>\n   <primaryExtension>\n      <callForwardAllDestination>\n         <sendToVoiceMailPilotNumber>true|false</sendToVoiceMailPilotNumber>\n         <destination>673285</destination>\n      </callForwardAllDestination>\n      <messageWaitingVisualAlertPreference>0</messageWaitingVisualAlertPreference>\n      <messageWaitingAudibleAlertPreference>0</messageWaitingAudibleAlertPreference>\n      <onACallRingPreference>0</onACallRingPreference>\n      <notOnACallRingPreference>0</notOnACallRingPreference>\n   </primaryExtension>\n   <userLocale appliesToAllDevices=\"true|false\">0</userLocale>\n   <enableCalendarPresence>true|false</enableCalendarPresence>\n   <enableDoNotDisturb>true|false</enableDoNotDisturb>\n   <callForwardAllDestination>\n      <sendToVoiceMailPilotNumber>true|false</sendToVoiceMailPilotNumber>\n      <destination>43521</destination>\n   </callForwardAllDestination>\n   <logMissedCalls>true|false</logMissedCalls>\n</user>"
+								},
+								"url": {
+									"raw": "https://{host}:8443/cucm-uds/user/{userid}",
+									"protocol": "https",
+									"host": [
+										"{host}"
+									],
+									"port": "8443",
+									"path": [
+										"cucm-uds",
+										"user",
+										"{userid}"
+									]
+								},
+								"description": "Allows the user to modify their personal information.\n\nUDS allows PUT methods only when homeCluster is true for the user."
+							},
+							"response": []
+						},
+						{
+							"name": "user/{userId}/conferencing",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{host}:8443/cucm-uds/user/{userId}/conferencing",
+									"protocol": "https",
+									"host": [
+										"{host}"
+									],
+									"port": "8443",
+									"path": [
+										"cucm-uds",
+										"user",
+										"{userId}",
+										"conferencing"
+									]
+								},
+								"description": "The conferencing resource allows users to access and update their Conference Now access codes. conferencing supports GET and PUT methods."
+							},
+							"response": []
+						},
+						{
+							"name": "user/{userId}/conferencing",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/xml"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<conferencing>\n   <conferenceNow>\n      <enabled>true</enabled>\n      <accessCode>9876</accessCode>\n   </conferenceNow>\n</conferencing>"
+								},
+								"url": {
+									"raw": "https://{host}:8443/cucm-uds/user/{userId}/conferencing",
+									"protocol": "https",
+									"host": [
+										"{host}"
+									],
+									"port": "8443",
+									"path": [
+										"cucm-uds",
+										"user",
+										"{userId}",
+										"conferencing"
+									]
+								},
+								"description": "The conferencing resource allows users to access and update their Conference Now access codes. conferencing supports GET and PUT methods."
+							},
+							"response": []
+						},
+						{
+							"name": "user/{userId}/credentials",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{host}:8443/cucm-uds/user/{userId}/credentials",
+									"protocol": "https",
+									"host": [
+										"{host}"
+									],
+									"port": "8443",
+									"path": [
+										"cucm-uds",
+										"user",
+										"{userId}",
+										"credentials"
+									]
+								},
+								"description": "The credentials resource provides the ability to update the user’s credential information, which consists of either a password or PIN number.\n\nThe GET method allows users to retrieve the last successful login-time/IP-address, and the number of unsuccessful login attempts"
+							},
+							"response": []
+						},
+						{
+							"name": "user/{userId}/credentials",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/xml"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<credentials>\n   <credential type=\"password\">1234</credential>\n   <credential type=\"pin\">4321</credential>\n</credentials>"
+								},
+								"url": {
+									"raw": "https://{host}:8443/cucm-uds/user/{userId}/credentials",
+									"protocol": "https",
+									"host": [
+										"{host}"
+									],
+									"port": "8443",
+									"path": [
+										"cucm-uds",
+										"user",
+										"{userId}",
+										"credentials"
+									]
+								},
+								"description": "The credentials resource provides the ability to update the user’s credential information, which consists of either a password or PIN number.\n\nThe GET method allows users to retrieve the last successful login-time/IP-address, and the number of unsuccessful login attempts"
+							},
+							"response": []
+						},
+						{
+							"name": "user/{userId}/devices",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https://{host}:8443/cucm-uds/user/{userId}/devices",
+									"protocol": "https",
+									"host": [
+										"{host}"
+									],
+									"port": "8443",
+									"path": [
+										"cucm-uds",
+										"user",
+										"{userId}",
+										"devices"
+									]
+								},
+								"description": "The devices resource returns an unordered list of devices associated to the user.\n\nIf the user has entered information into the description field for a device, it is returned with this call. Otherwise, it returns the default description as set by the administrator."
+							},
+							"response": []
+						},
+						{
+							"name": "user/{userId}/extensions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https:­//{host}:8443/cucm-uds/user/{userid}/extensions",
+									"host": [
+										"https"
+									],
+									"port": "­",
+									"path": [
+										"",
+										"{host}:8443",
+										"cucm-uds",
+										"user",
+										"{userid}",
+										"extensions"
+									]
+								},
+								"description": "The extensions resource returns a listing of all of the extension information from the associated user. Note the following:\n\nLabel is a field whose value is set by the user. It is not an administrator field.\nIf the user has a primary extension, it is displayed first. For client devices, having sendToVoiceMailPilotNumber set to true takes precedence over the setting in callForwardAllDestination."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "user device",
+					"description": "",
+					"item": [
+						{
+							"name": "speedDials",
+							"description": "",
+							"item": [
+								{
+									"name": "user/{userId}/device/{devicePkid}/speedDials",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/speedDials",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"speedDials"
+											]
+										},
+										"description": "The device-specific speedDials resource manages speed dial information for a device. It supports GET, POST, and PUT methods."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/device/{devicePkid}/speedDials",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<speedDials>\n    <speedDial>\n        <index>1</index>\n        <number>1234</number>\n        <label>My Label</label>\n    </speedDial>\n    <speedDial>\n        <index>5</index>\n        <number>5555</number>\n        <label>My Label2</label>\n    </speedDial>\n</speedDials>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/speedDials",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"speedDials"
+											]
+										},
+										"description": "Adds speedDials for the specified device.\nIndex and number parameters are required.\nLabel is optional."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/device/{devicePkid}/speedDials",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<speedDials>\n    <speedDial>\n        <index>1</index>\n        <number>1234</number>\n        <label>My Label</label>\n    </speedDial>\n    <speedDial>\n        <index>5</index>\n        <number>5555</number>\n        <label>My Label2</label>\n    </speedDial>\n</speedDials>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/speedDials",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"speedDials"
+											]
+										},
+										"description": "Replaces the current speed dial list for a particular device."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/device/{devicePkid}/speedDial/{speedDialPkid}",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/speedDial/{speedDialPkid}",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"speedDial",
+												"{speedDialPkid}"
+											]
+										},
+										"description": "The speedDial resource manages speed dial information for devices. It supports GET, POST, and PUT methods."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/device/{devicePkid}/speedDial/{speedDialPkid}",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<speedDial>\n    <index>2</index>\n    <number>01010101</number>\n    <label>Home</label>\n</speedDial>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/speedDial/{speedDialPkid}",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"speedDial",
+												"{speedDialPkid}"
+											]
+										},
+										"description": "Adds one new speedDial entry to the specified device."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/device/{devicePkid}/speedDial/{speedDialPkid}",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<speedDial>\n    <index>2</index>\n    <number>01010101</number>\n    <label>Home</label>\n</speedDial>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/speedDial/{speedDialPkid}",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"speedDial",
+												"{speedDialPkid}"
+											]
+										},
+										"description": "Update speedDial entry to the specified device."
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "subscribedServices",
+							"description": "",
+							"item": [
+								{
+									"name": "user/{userId}/device/{devicePkid}/subscribedServices",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/subscribedServices",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"subscribedServices"
+											]
+										},
+										"description": "The subscribedServices resource accesses the consolidated subscribed IP phone services for a user. If the user has different subscribed IP phone services on different devices, the response includes the URL for accessing the subscribed services for those devices. subscribedServices supports GET, POST/PUT, and DELETE methods."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/device/{devicePkid}/subscribedServices",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<subscribedServices>\n    <subscribedService>\n        <name>InternalTechSupport</name>\n        <phoneServiceId>{phoneServiceId}</phoneServiceId>\n        <url>http:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</url>\n        <secureUrl>https:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</secureServiceUrl>\n    </subscribedService>\n    <subscribedService>\n        <name>Service2</name>\n        <phoneServiceId>{phoneServiceId}</phoneServiceId>\n        <url>http:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</url>\n        <secureUrl>https:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</secureServiceUrl>\n    </subscribedService>\n</subscribedServices>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/subscribedServices",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"subscribedServices"
+											]
+										},
+										"description": "Add subscribedServices to a Device Request Body"
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/device/{devicePkid}/subscribedServices",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<subscribedServices>\n    <subscribedService>\n        <name>InternalTechSupport</name>\n        <phoneServiceId>{phoneServiceId}</phoneServiceId>\n        <url>http:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</url>\n        <secureUrl>https:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</secureServiceUrl>\n    </subscribedService>\n    <subscribedService>\n        <name>Service2</name>\n        <phoneServiceId>{phoneServiceId}</phoneServiceId>\n        <url>http:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</url>\n        <secureUrl>https:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</secureServiceUrl>\n    </subscribedService>\n</subscribedServices>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/subscribedServices",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"subscribedServices"
+											]
+										},
+										"description": "Update subscribedServices to a Device Request Body"
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/device/{devicePkid}/subscribedServices",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<subscribedServices>\n    <subscribedService>\n        <name>InternalTechSupport</name>\n        <phoneServiceId>{phoneServiceId}</phoneServiceId>\n        <url>http:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</url>\n        <secureUrl>https:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</secureServiceUrl>\n    </subscribedService>\n    <subscribedService>\n        <name>Service2</name>\n        <phoneServiceId>{phoneServiceId}</phoneServiceId>\n        <url>http:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</url>\n        <secureUrl>https:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</secureServiceUrl>\n    </subscribedService>\n</subscribedServices>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/subscribedServices",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"subscribedServices"
+											]
+										},
+										"description": "Remove subscribedServices to a Device Request Body"
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/device/{devicePkid}/subscribedService/{subscribedServicePkid}",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/subscribedService/{subscribedServicePkid}",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"subscribedService",
+												"{subscribedServicePkid}"
+											]
+										},
+										"description": "The subscribedService resource manages the detailed information of a subscribed IP Phone Service. subscribedService supports GET, POST, and PUT methods. The URI for accessing the subscribedService resource should be retrieved from the subscribedServices response."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/device/{devicePkid}/subscribedService/{subscribedServicePkid}",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<subscribedService>\n    <name>My Subscribed Service</name>\n    <phoneServiceId>{pkid}</phoneServiceId>\n    <parameters>\n        <parameter>\n            <paramId>{pkid}</paramId>\n            <value>5</value>\n        </parameter>\n    </parameters>\n</subscribedService>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/subscribedService/{subscribedServicePkid}",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"subscribedService",
+												"{subscribedServicePkid}"
+											]
+										},
+										"description": "The subscribedService resource creates a new subscribed service on a device."
+									},
+									"response": []
+								},
+								{
+									"name": "user/{userId}/device/{devicePkid}/subscribedService/{subscribedServicePkid}",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "   <subscribedservice>\n   <name>My Subscribed Service</name>\n   <url>http:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</url>\n   <secureurl>https:­//{host}/GTRC/ipgtrc/servlet/GTRCService?menuname=US</secureurl>\n   </subscribedservice>"
+										},
+										"url": {
+											"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/subscribedService/{subscribedServicePkid}",
+											"host": [
+												"https"
+											],
+											"port": "­",
+											"path": [
+												"",
+												"{host}:8443",
+												"cucm-uds",
+												"user",
+												"{userId}",
+												"device",
+												"{devicePkid}",
+												"subscribedService",
+												"{subscribedServicePkid}"
+											]
+										},
+										"description": "Update a subscribedservice"
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "user/{userId}/device/{devicePkid}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}",
+									"host": [
+										"https"
+									],
+									"port": "­",
+									"path": [
+										"",
+										"{host}:8443",
+										"cucm-uds",
+										"user",
+										"{userId}",
+										"device",
+										"{devicePkid}"
+									]
+								},
+								"description": "The device resource manages a user's device information. Device supports GET and PUT methods. When the device has been associated with a user, its editable description field is set to true and can be changed by the user. See the PUT method for more detail.\n\nIf the user has entered information into the description field, it is returned with this call. Otherwise, it returns the default description as set by the administrator"
+							},
+							"response": []
+						},
+						{
+							"name": "user/{userId}/device/{devicePkid}",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/xml"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<device>\n   <description>description</description>\n    <doNotDisturbSettings>\n        <enable>true</enable>\n    </doNotDisturbSettings>\n</device>"
+								},
+								"url": {
+									"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}",
+									"host": [
+										"https"
+									],
+									"port": "­",
+									"path": [
+										"",
+										"{host}:8443",
+										"cucm-uds",
+										"user",
+										"{userId}",
+										"device",
+										"{devicePkid}"
+									]
+								},
+								"description": "The device PUT method allows the user to modify the information of several options in the device. When the method completes, it returns a response with results identical those obtained with a GET Device request."
+							},
+							"response": []
+						},
+						{
+							"name": "user/{userid}/device/{devicePkid}/extensions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https:­//{host}:8443/cucm-uds/user/{userid}/device/{devicePkid}/extensions",
+									"host": [
+										"https"
+									],
+									"port": "­",
+									"path": [
+										"",
+										"{host}:8443",
+										"cucm-uds",
+										"user",
+										"{userid}",
+										"device",
+										"{devicePkid}",
+										"extensions"
+									]
+								},
+								"description": "The extensions resource returns a listing of all of the extension information about a device associated to the user. Note the following:\n\nLabel is a field whose value is set by the user. It is not an administrator field.\nIf the user has a primary extension, it is displayed first.\nFor client devices, having sendToVoiceMailPilotNumber set to \"true\" takes precedence over the setting in callForwardAllDestination"
+							},
+							"response": []
+						},
+						{
+							"name": "user/{userId}/device/{devicePkid}/extension/{extensionPkid}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/extension/{extensionPkid}",
+									"host": [
+										"https"
+									],
+									"port": "­",
+									"path": [
+										"",
+										"{host}:8443",
+										"cucm-uds",
+										"user",
+										"{userId}",
+										"device",
+										"{devicePkid}",
+										"extension",
+										"{extensionPkid}"
+									]
+								},
+								"description": "The extension resource GET method returns information about the device's dialling and forwarding information. It does not provide description field information--this is only accessible by the administrator."
+							},
+							"response": []
+						},
+						{
+							"name": "user/{userId}/device/{devicePkid}/extension/{extensionPkid}",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/xml"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<extension>\n    <callForwardAllDestination>\n        <sendToVoiceMailPilotNumber>false</sendToVoiceMailPilotNumber>\n        <sendToCustomDestination>43521</sendToCustomDestination>\n    </callForwardAllDestination>\n    <logMissedCalls>false</logMissedCalls>\n    <label>label</label>\n    <messageWaitingVisualAlertPreference>1</messageWaitingVisualAlertPreference>\n    <messageWaitingAudibleAlertPreference>1</messageWaitingAudibleAlertPreference>\n    <onACallRingPreference>1</onACallRingPreference>\n    <notOnACallRingPreference>1</notOnACallRingPreference>\n</extension>"
+								},
+								"url": {
+									"raw": "https:­//{host}:8443/cucm-uds/user/{userId}/device/{devicePkid}/extension/{extensionPkid}",
+									"host": [
+										"https"
+									],
+									"port": "­",
+									"path": [
+										"",
+										"{host}:8443",
+										"cucm-uds",
+										"user",
+										"{userId}",
+										"device",
+										"{devicePkid}",
+										"extension",
+										"{extensionPkid}"
+									]
+								},
+								"description": "The extension resource GET method returns information about the device's dialling and forwarding information. It does not provide description field information--this is only accessible by the administrator."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "LBBS@1999",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "administrator",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6b7b9c45-87e7-48ab-93b9-9bace63b8d6d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "af074182-b533-4902-b5b4-978135eeb491",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
